@@ -3,9 +3,7 @@ package com.javarush.task.task20.task2028;
 import java.io.Serializable;
 import java.util.*;
 
-/*
-Построй дерево(1)
-*/
+
 public class CustomTree extends AbstractList<String> implements Cloneable, Serializable {
     Entry<String> root;
     //private static final long serialVersionUID = 1L;
@@ -102,7 +100,7 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
                 queue.clear();
                 return true;
             }
-            /// both children are present - need to down to next level
+            // both children are present - need to move down to the next level
             if (node.leftChild != null) {
                 queue.add(node.leftChild);
             }
@@ -164,14 +162,7 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
         return null;
     }
 
-//    private int getSubTreeDeep(Entry<String> startNode) {
-//        int leftDeep = (startNode.leftChild != null) ? getSubTreeDeep(startNode.leftChild) : 0;
-//        int rightDeep = (startNode.rightChild != null) ? getSubTreeDeep(startNode.rightChild) : 0;
-//        return ((leftDeep > rightDeep) ? leftDeep : rightDeep) + 1;
-//    }
-
     private int getSubTreeNodeCount(Entry<String> startNode) {
-//    public int getSubTreeNodeCount(Entry<String> startNode) {
         Queue<Entry<String>> queue = new ArrayDeque<>();
         queue.add(startNode);
         int count = 0;
@@ -189,23 +180,4 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
         }
         return count;
     }
-
-//    int getSubTreeNodeCountByDeep(Entry<String> startNode) {
-//        Stack<Entry<String>> queue = new Stack<>();
-//        queue.add(startNode);
-//        int count = 0;
-//        while (!queue.isEmpty()) {
-//            Entry<String> node = queue.pop();
-//            if (node != startNode) {
-//                count++;
-//            }
-//            if (node.rightChild != null) {
-//                queue.push(node.rightChild);
-//            }
-//            if (node.leftChild != null) {
-//                queue.push(node.leftChild);
-//            }
-//        }
-//        return count;
-//    }
 }
